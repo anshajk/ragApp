@@ -1,0 +1,149 @@
+# Sample Document 2: Cloud Computing Guide
+
+## Introduction to Cloud Computing
+
+Cloud computing is the delivery of computing services—including servers, storage, databases, networking, software, analytics, and intelligence—over the Internet ("the cloud") to offer faster innovation, flexible resources, and economies of scale.
+
+## Service Models
+
+### Infrastructure as a Service (IaaS)
+IaaS provides virtualized computing resources over the internet. Key characteristics:
+- **Virtual Machines**: Scalable compute instances
+- **Storage**: Block, object, and file storage solutions
+- **Networking**: Virtual networks, load balancers, firewalls
+- **Examples**: Amazon EC2, Microsoft Azure VMs, Google Compute Engine
+
+### Platform as a Service (PaaS)
+PaaS provides a platform allowing customers to develop, run, and manage applications without maintaining the underlying infrastructure:
+- **Development Tools**: IDEs, frameworks, libraries
+- **Database Management**: Managed database services
+- **Middleware**: Application servers, messaging systems
+- **Examples**: Heroku, Google App Engine, Azure App Service
+
+### Software as a Service (SaaS)
+SaaS delivers software applications over the internet, on a subscription basis:
+- **Accessibility**: Available from any device with internet connection
+- **Maintenance**: Provider handles updates and security
+- **Scalability**: Automatic scaling based on usage
+- **Examples**: Office 365, Salesforce, Google Workspace
+
+## Deployment Models
+
+### Public Cloud
+Services are delivered over the public internet and shared across multiple organizations:
+- **Cost-effective**: Pay-as-you-use pricing model
+- **Scalable**: Virtually unlimited resources
+- **Managed**: Provider handles maintenance and security
+- **Examples**: AWS, Microsoft Azure, Google Cloud Platform
+
+### Private Cloud
+Computing services are used exclusively by a single organization:
+- **Control**: Full control over resources and security
+- **Customization**: Tailored to specific business needs
+- **Compliance**: Better support for regulatory requirements
+- **Higher Cost**: More expensive than public cloud options
+
+### Hybrid Cloud
+Combines public and private clouds, allowing data and applications to be shared between them:
+- **Flexibility**: Choose optimal environment for each workload
+- **Cost Optimization**: Use public cloud for non-sensitive operations
+- **Compliance**: Keep sensitive data in private cloud
+- **Complexity**: Requires careful management and integration
+
+### Multi-Cloud
+Uses multiple cloud services from different providers:
+- **Vendor Independence**: Avoid vendor lock-in
+- **Best-of-Breed**: Choose best services from each provider
+- **Redundancy**: Improved disaster recovery and availability
+- **Complexity**: Increased management overhead
+
+## Benefits of Cloud Computing
+
+### Cost Savings
+- **Capital Expenditure**: Reduced upfront infrastructure costs
+- **Operational Expenditure**: Pay only for resources used
+- **Maintenance**: Lower IT maintenance and support costs
+- **Energy**: Reduced power and cooling expenses
+
+### Scalability and Flexibility
+- **Elastic Scaling**: Automatically adjust resources based on demand
+- **Global Reach**: Deploy applications worldwide instantly
+- **Resource Variety**: Access to diverse computing resources
+- **Rapid Deployment**: Quick provisioning of new services
+
+### Reliability and Security
+- **High Availability**: Built-in redundancy and failover capabilities
+- **Disaster Recovery**: Automated backup and recovery solutions
+- **Security**: Enterprise-grade security measures and compliance
+- **Updates**: Automatic security patches and updates
+
+### Innovation and Agility
+- **Faster Time-to-Market**: Rapid development and deployment cycles
+- **Experimentation**: Easy to test new ideas and technologies
+- **Focus**: Concentrate on core business rather than infrastructure
+- **Latest Technology**: Access to cutting-edge services and tools
+
+## Popular Cloud Providers
+
+### Amazon Web Services (AWS)
+- **Market Leader**: Largest cloud provider globally
+- **Service Portfolio**: Comprehensive range of services
+- **Global Infrastructure**: Extensive worldwide presence
+- **Enterprise Focus**: Strong enterprise and government adoption
+
+### Microsoft Azure
+- **Enterprise Integration**: Seamless integration with Microsoft products
+- **Hybrid Solutions**: Strong hybrid cloud capabilities
+- **AI and ML**: Advanced artificial intelligence services
+- **Government**: Specialized government cloud offerings
+
+### Google Cloud Platform (GCP)
+- **Data Analytics**: Leading big data and analytics services
+- **Machine Learning**: Advanced AI and ML capabilities
+- **Open Source**: Strong support for open-source technologies
+- **Kubernetes**: Native container orchestration
+
+### Other Providers
+- **IBM Cloud**: Focus on enterprise and AI solutions
+- **Oracle Cloud**: Database and enterprise application focus
+- **Alibaba Cloud**: Leading provider in Asia-Pacific region
+
+## Cloud Migration Strategies
+
+### Lift and Shift (Rehosting)
+Moving applications to the cloud with minimal changes:
+- **Speed**: Fastest migration approach
+- **Risk**: Lower technical risk
+- **Benefits**: Limited cloud-native benefits
+- **Use Case**: Quick migration with minimal disruption
+
+### Replatforming
+Making some optimizations to leverage cloud capabilities:
+- **Optimization**: Moderate changes for cloud benefits
+- **Database**: Often involves managed database services
+- **Performance**: Improved performance and cost optimization
+- **Risk**: Moderate risk with better returns
+
+### Refactoring (Re-architecting)
+Redesigning applications to be cloud-native:
+- **Maximum Benefits**: Full leverage of cloud capabilities
+- **Microservices**: Often involves breaking monoliths
+- **Investment**: Highest effort and cost
+- **Long-term**: Best long-term value and flexibility
+
+## Security Considerations
+
+### Shared Responsibility Model
+- **Cloud Provider**: Physical security, infrastructure, and platform security
+- **Customer**: Data, identity, access management, and application security
+- **Clear Boundaries**: Understanding responsibility divisions
+- **Documentation**: Maintaining security documentation
+
+### Best Practices
+- **Identity Management**: Strong authentication and authorization
+- **Encryption**: Data encryption in transit and at rest
+- **Network Security**: Proper network segmentation and firewalls
+- **Monitoring**: Continuous security monitoring and logging
+- **Compliance**: Meeting regulatory requirements
+
+Cloud computing continues to evolve, with new services and capabilities being introduced regularly. Organizations should develop a comprehensive cloud strategy that aligns with their business objectives and technical requirements.

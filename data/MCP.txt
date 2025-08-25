@@ -1,0 +1,106 @@
+## MCP - Model Context Protocol
+
+Everyone is talking about MCP. And until about two months ago, I didn’t understand it very well. With a ton of information coming from various sources, about how MCP is a “game-changer” and how it will revolutionize everything, I personally found it very hard to find content that helped me understand what MCP is. And I think we’re in such dearth of good quality sources of information these days, places that don’t “sell” an idea and instead help us understand the idea so that we ourselves can determine its worth. But that is a rant for some other day.
+I went the rabbit hole of going through the documentation, discussions from industry experts and basically every good source that I could get my hands on, and well, understood MCP for what it is. And then I went ahead and started implementing my own MCP components and performed a bunch of interesting experiments with it. So if you find this topic interesting, let me tell you what I learnt and I’ll let you decide how impactful this is really going to be.
+
+What is MCP?
+MCP stands for Model Context Protocol. The term says it all. It’s a protocol. It’s a spec that was created by Anthropic, to standardize the way Large Language Models can get access to information and tools. Tooling is a big component of what truly makes these LLMs, behave like agents. If you’re new to AI agents, I’d recommend reading this article that I wrote earlier about what AI agents really are.
+MCP is an attempt to standardize the way LLMs can call these tools, access data etc. As a developer, for every single integration, you don’t need to reinvent the wheel about “how” to integrate your API, data source etc with a LLM to make it an agent. MCP is a “good” or a standard way to integrate your tooling with LLMs that the entire industry focused on AI can follow and make it easier for all of us to use each other’s tooling. Suppose you develop a new capability to have a relational database (SQL Server etc) connect with a LLM so that the LLM can query your database for information, if you expose this implementation as an MCP component (we’ll talk about this next), it can give other people & other agents access to your implementation easily, without really having to write custom code to integrate with your solution. And that is the entire point!
+
+Architecture of MCP system
+Source: https://modelcontextprotocol.io/specification/2025-06-18/architecture
+There are 3 main components in a MCP system
+1. Host
+2. Client
+3. Server
+
+Each of these 3 have their dedicated roles, and are arranged such that the system that MCP envisions, is secure, scalable, and actually makes it easy to build agentic systems faster.
+
+MCP Host
+The MCP host is the LLM application (e.g., Claude Desktop, VS Code) that acts as the container and coordinator. The host creates and manages multiple client instances, controls their connection permissions and lifecycles, enforces security policies, handles user authorisation, coordinates LLM integration and sampling, and manages context aggregation across clients. Think of this as the orchestrator of the entire MCP workflow.
+
+MCP Client
+Each MCP client is created by the host and maintains an isolated, stateful JSON RPC session with a specific server. Clients handle protocol negotiation, capability exchange, bidirectional message routing, subscriptions, and notifications, while maintaining security boundaries between servers. There is a 1:1 relationship between a client and a server. One host can spin up multiple MCP clients to interact with multiple MCP servers.
+
+MCP Server
+MCP Servers are independent processes that provide context and capabilities to the LLM. Servers expose resources, tools, and prompt templates via MCP primitives (we’ll discuss them in detail). Servers can be local processes (running on the same machine as the host) or remote services (hosted in the cloud).
+
+Some of the design principles should be noted while building MCP servers
+
+Servers should be extremely easy to build
+
+Servers should be highly composable meaning that each server provides focused functionality in isolation thus allowing multiple servers to be combined seamlessly
+
+Servers should not be able to read the whole conversation, nor “see into” other servers
+
+Features can be added to servers and clients progressively
+
+Server primitives
+While we talk about an MCP server, its important to understand the server primitives that the MCP protocol expects. There are 3 main server primitives
+
+
+Tools: These are discrete actions or functions that an AI agent can call. An example includes a get weather tool from a weather service, a create event tool from a calendar service, or a create postgres database tool from a database provider. Servers advertise the name, description, and input/output schema of each tool in their capabilities listing. When an LLM invokes a tool via a client, the MCP server executes the underlying function.
+
+Resources: These are read-only data items or documents that the server can provide, and the client can retrieve on demand. Examples include text files, database schemas, file contents, or entries from a knowledge base. They allow the LLM to access and incorporate external information into its context.
+
+Prompt Templates: These are predefined templates providing suggested prompts that can be injected into the LLM's context window. They can guide the model's approach to certain tasks or data and often appear as slash commands in AI applications, saving users time.
+
+An easy reference to the information above can be found in the table below,
+
+
+Capability Negotiation
+Capability negotiation in the MCP allows different AI components to understand and interact with each other effectively. It is a system where both MCP clients and servers explicitly declare the features and functionalities they support during the initialization of a session
+
+The primary goal is to ensure that both the client and the server have a clear understanding of which protocol features and primitives are available for use throughout their interaction
+
+This negotiation is crucial for AI agents to successfully integrate with external data sources and tools, such as databases or APIs.
+
+It enables dynamic discovery, allowing an AI agent to query an MCP server at runtime to determine its available functionalities and then invoke those capabilities in a standardized way
+
+
+Source: https://modelcontextprotocol.io/specification/2025-06-18/architecture
+The dedicated roles of MCP Host, Client and Server, combined with capability negotiation etc, creates a standard way for building agentic applications. This also paves way for developers to build on top of each other’s work and can significantly increase the pace at which agentic applications are developed. That is the promise of MCP.
+
+I’ve complied a bunch of useful links in the section below in case you’re interested
+
+How to stay updated with the updates on the MCP protocol
+
+Best practices
+
+Security best practices
+
+Well, now you know how the key specifications behind the MCP protocol. In an upcoming article, I’ll demonstrate how to use fastmcp to build your own MCP server easily. If that is something that interests you, feel free to subscribe to the compute blog using the button below. With this, thank you so much for reading and I hope you have a wonderful day!
+
+Thanks for reading Compute - A programming blog! Subscribe for free to receive new posts and support my work.
+
+Type your email...
+Subscribe
+1 Like
+Discussion about this post
+Write a comment...
+
+Retrieval Augmented Generation
+One of the most cost-effective, easy to implement, and lowest-risk path to higher performance for GenAI applications
+May 27 • Anshaj
+1
+
+Langflow
+Make your AI agent using a no/low code approach & easily build powerful AI agents
+Apr 23 • Anshaj
+1
+
+Containers in software engineering
+Learn the basics of docker & kubernetes in under 10 minutes
+Jan 18 • Anshaj
+1
+1
+
+Ready for more?
+
+Type your email...
+Subscribe
+© 2025 Anshaj
+Privacy ∙ Terms ∙ Collection notice
+Start writing
+Get the app
+Substack is the home for great culture

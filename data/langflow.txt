@@ -1,0 +1,148 @@
+## Langflow
+WHAT IS LANGFLOW?
+
+Langflow reminds me of Figma, which has become synonymous with UI/UX workflows. Designing and prototyping frontend applications, became super easy due to Figma and most of the companies working on products started relying on it to work on their UI/UX flows. Langflow is like figma for AI agents. You can design an agent with a drag-drop interface and develop smart agents without really having to write any code.
+
+At the same time, if you are comfortable writing your programs, you can implement your own tooling which langflow can then utilize making it a powerful tool even for experienced software engineers.
+
+How is it different from others agentic AI tools?
+
+Here’s a small table comparing the different popular agentic AI frameworks in the market right now in case you’d like to take a quick look.
+
+
+Setting up langflow on your computer 
+
+The steps for this are fairly straightforward, if you’d like to set it up on your computer for playing around with langflow
+
+Have python version >= 3.10, installed in your machine
+Create a virtual environment with python3 -m venv .venv
+Load the virtual environment with source .venv/bin/activate
+Langflow is best installed using uv
+To install langflow run the following uv pip install langflow
+You run langflow with uv run langflow run
+When the command finishes execution, this is what you'd be able to see on your terminal.
+
+
+Visual agent builder
+
+
+Langflow is an intuitive visual flow builder. This drag-and-drop interface allows people to create complex AI workflows without writing extensive code. You can easily connect different components, such as prompts, language models, and data sources, to build sophisticated AI applications.
+
+What is a flow?
+
+A flow is an application. It receives input, processes it, and produces output. Flows are created in the workspace with components dragged from the components sidebar.
+
+Basic prompting flow within in the workspace
+A flow can be as simple as the basic prompting flow, which creates an OpenAI chatbot with four components.
+
+Each component in a flow is a node that performs a specific task, like an AI model or a data source.
+Each component has a Configuration menu. Click the Code pane to see a component's underlying Python code.
+Components are connected with edges to form flows.
+When a flow is run, Langflow builds a Directed Acyclic Graph (DAG) graph object from the nodes (components) and edges (connections between components), with the nodes sorted to determine the order of execution. The graph build calls the individual components' build functions to validate and prepare the nodes. This graph is then processed in dependency order. Each node is built and executed sequentially, with results from each built node being passed to nodes that are dependent on the previous node's results.
+
+Components
+
+A component is a single building block within a flow and consists of inputs, outputs, and parameters that define its functionality. To add a component to your flow, drag it from the sidebar onto the workspace. To connect components, drag a line from the output handle (⚪) of one component to the input handle of another
+
+Prompt component
+Project - Youtube video summary agent
+
+One of the fun ideas I had while experimenting with langflow, was to build an agent that would summarize the youtube videos, and DM it to me for safekeeping. As someone who doesn’t want to spend a lot of time watching youtube, this would’ve been a good solution to save time and check whether a video is even worth watching.
+
+I used youtube transcripts tool, to get the transcripts for any youtube video, attached the chat input and output to the agent, used gemini 2.0 flash for the LLM layer and the overall flow was surprisingly simple. You can see the entire flow in the picture below.
+
+
+I also gave my agent very clear instructions on what it needs to do. I instructed it to summarize the video in not more than 3 main points. At the same time, I wanted the agent to provide me a a list of all the important points that were discussed in the video. The idea was to distill information as much as possible, while retaining the important information that I can reference later, if required. The instructions to my agent were as below.
+
+
+It all came together. Here, in a video of less than 1 minutes, I’ll show you how the end to end implementation of this looks like, including receiving my agent sending a message to me, on Discord (an IM platform)
+
+
+Langflow is a surprisingly good open-source framework that makes it super easy & fun to build AI agents, but it’s far from the only one. If you’d like to read about other agentic AI frameworks and other modern computation practices & solutions, feel free to subscribe to my blog - compute for free. With that, thank you so much for reading and I hope you have a wonderful day!
+
+Thanks for reading Compute - A programming blog! Subscribe for free to receive new posts and support my work.
+
+1 Like
+Discussion about this post
+
+
+Retrieval Augmented Generation
+One of the most cost-effective, easy to implement, and lowest-risk path to higher performance for GenAI applications
+MAY 27 • ANSHAJ
+
+1
+
+
+
+What is MCP
+I promise it's not as complicated as you might think
+JUL 22 • ANSHAJ
+
+1
+
+
+
+Containers in software engineering
+Learn the basics of docker & kubernetes in under 10 minutes
+JAN 18 • ANSHAJ
+
+1
+
+1
+
+
+How to create websites easily with Hugo
+And host them for free :)
+FEB 10, 2023 • ANSHAJ
+
+1
+
+
+
+What are orchestrators in data systems?
+Everything you need to know about modern data pipeline orchestration
+OCT 30, 2024 • ANSHAJ
+
+
+
+
+What are AI agents really?
+Let's do a deep dive into what AI agents are, and their building blocks
+APR 16 • ANSHAJ
+
+
+
+
+5 things that make you a great software engineer
+That they don't tell you about
+OCT 10, 2024 • ANSHAJ
+
+
+
+
+Hasura - Effortless unified API on all your data
+How to ship a rock-solid API on your data – in minutes
+NOV 9, 2024 • ANSHAJ
+
+
+
+
+FastAPI in python
+Explore FastAPI’s powerful features, including async support, automatic validation, and built-in documentation, making it the go-to framework for modern…
+FEB 28 • ANSHAJ
+
+
+
+
+Boost Your Productivity with the Best VS Code Extensions
+How to save time and become more efficient at software engineering using VS Code extensions
+OCT 2, 2023 • ANSHAJ
+
+
+
+
+© 2025 Anshaj
+Privacy ∙ Terms ∙ Collection notice
+Start writing
+Get the app
+Substack is the home for great culture
