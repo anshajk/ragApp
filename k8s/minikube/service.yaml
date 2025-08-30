@@ -1,0 +1,54 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: rag-app-service
+  namespace: default
+  labels:
+    app: rag-app
+spec:
+  type: ClusterIP  # Internal service for backend API
+  ports:
+  - port: 8000
+    targetPort: 8000
+    protocol: TCP
+    name: http
+  selector:
+    app: rag-app
+
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: streamlit-frontend-service
+  namespace: default
+  labels:
+    app: streamlit-frontend
+spec:
+  type: NodePort  # NodePort for Minikube access
+  ports:
+  - port: 8501
+    targetPort: 8501
+    nodePort: 30080  # Fixed NodePort for consistent access
+    protocol: TCP
+    name: http
+  selector:
+    app: streamlit-frontend
+
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: rag-app-nodeport-service
+  namespace: default
+  labels:
+    app: rag-app
+spec:
+  type: NodePort  # NodePort for direct backend API access
+  ports:
+  - port: 8000
+    targetPort: 8000
+    nodePort: 30800  # Fixed NodePort for API access
+    protocol: TCP
+    name: http
+  selector:
+    app: rag-app
