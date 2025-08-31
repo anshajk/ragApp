@@ -16,7 +16,7 @@ fi
 if ! kubectl cluster-info &> /dev/null; then
     echo "❌ Not connected to a Kubernetes cluster!"
     echo "   Please configure kubectl to connect to your AKS cluster:"
-    echo "   az aks get-credentials --resource-group myResourceGroup --name myAKSCluster"
+    echo "   az aks get-credentials --resource-group myResourceGroup --name ragAksCluster"
     exit 1
 fi
 
