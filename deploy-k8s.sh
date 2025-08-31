@@ -36,7 +36,7 @@ ENCODED_API_KEY=$(echo -n "$OPENAI_API_KEY" | base64)
 
 # Update the secret file
 echo "🔐 Creating Kubernetes secret..."
-sed -i "s/OPENAI_API_KEY: \"\"/OPENAI_API_KEY: \"$ENCODED_API_KEY\"/" k8s/secret.yaml
+sed -i.bak "s/OPENAI_API_KEY: \"\"/OPENAI_API_KEY: \"$ENCODED_API_KEY\"/" k8s/secret.yaml
 
 # Apply Kubernetes manifests
 echo "🚀 Deploying to Kubernetes..."
