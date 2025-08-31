@@ -143,7 +143,7 @@ For detailed usage instructions, see [STREAMLIT_GUIDE.md](STREAMLIT_GUIDE.md).
 1. **Using the deployment script** (recommended):
    ```bash
    # Ensure you're connected to your AKS cluster
-   az aks get-credentials --resource-group myResourceGroup --name ragAksCluster
+   az aks get-credentials --resource-group ragAksCluster_group --name ragAksCluster
    
    # Deploy with script
    ./deploy-k8s.sh
